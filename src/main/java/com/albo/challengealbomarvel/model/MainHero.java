@@ -18,7 +18,6 @@ public class MainHero {
     private String fullName;
     @Column(name = "last_sync")
     private LocalDateTime lastSync;
-    private boolean syncronizable;
 
     public Long getId() {
         return id;
@@ -50,13 +49,5 @@ public class MainHero {
 
     public void setLastSync(LocalDateTime lastSync) {
         this.lastSync = lastSync;
-    }
-
-    public boolean isSyncronizable() {
-        return syncronizable;
-    }
-
-    public void setSyncronizable(boolean syncronizable) {
-        this.syncronizable = syncronizable;
     }
 }

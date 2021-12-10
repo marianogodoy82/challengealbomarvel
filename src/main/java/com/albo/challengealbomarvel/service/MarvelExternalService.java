@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -63,7 +61,6 @@ public class MarvelExternalService {
      * Metodo que se encarga de ejecutar la llamada a la api de marvel y actualizar la DB con dicha informacion.
      */
     //@Scheduled(cron = "${rest.cron.expression}")
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void synchronizeData() {
         log.info("Iniciando proceso de sincronizacion....");
         log.info("Horario de comienzo de la Sincronizacion: {}....", LocalDateTime.now());
